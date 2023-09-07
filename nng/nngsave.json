@@ -124,7 +124,8 @@
     },
     {
       "lean": "lemma mul_pow (a b n : mynat) : (a * b) ^ n = a ^ n * b ^ n :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction n with n h1,\r\nrepeat {rw pow_zero},\r\nrw mul_one,\r\nrefl,\r\nrepeat {rw pow_succ},\r\nrw h1,\r\nrepeat {rw mul_assoc},\r\nrw mul_comm a (b ^ n * b),\r\nrw mul_assoc,\r\nrw mul_comm b a,\r\nrefl,\r\n"
     },
     {
       "lean": "lemma pow_pow (a m n : mynat) : (a ^ m) ^ n = a ^ (m * n) :=\n",
