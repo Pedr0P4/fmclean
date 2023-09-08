@@ -214,7 +214,8 @@
     },
     {
       "lean": "lemma imp_trans (P Q R : Prop) : (P → Q) → ((Q → R) → (P → R)) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro first,\r\nintro second,\r\nintro letterp,\r\nhave letterq := first letterp,\r\nexact second letterq,"
     },
     {
       "lean": "lemma contrapositive (P Q : Prop) : (P → Q) → (¬ Q → ¬ P) :=\n",
