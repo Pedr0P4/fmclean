@@ -165,17 +165,17 @@
     {
       "lean": "example (P Q R : Type) : (P → (Q → R)) → ((P → Q) → (P → R)) :=\n",
       "isSolved": true,
-      "editorText": "intro f,\r\nintro h,\r\nintro p,\r\napply f,\r\nexact p,\r\nhave q := h p,\r\nexact q, "
+      "editorText": "intro h1,\r\nintro h2,\r\nintro p,\r\napply h1,\r\nexact p,\r\nhave q := h2 p,\r\nexact q,"
     },
     {
       "lean": "example (P Q F : Type) : (P → Q) → ((Q → F) → (P → F)) :=\n",
       "isSolved": true,
-      "editorText": "intro g,\r\nintro h,\r\nintro p,\r\nhave q := g p,\r\nhave f := h q,\r\nexact f,"
+      "editorText": "intro h1,\r\nintro h2,\r\nintro p,\r\nhave q := h1 p,\r\nhave f := h2 q,\r\nexact f,"
     },
     {
       "lean": "example (P Q : Type) : (P → Q) → ((Q → empty) → (P → empty)) :=\n",
       "isSolved": true,
-      "editorText": "intros f h p,\r\nhave q := f p,\r\nhave e := h q,\r\nexact e,"
+      "editorText": "intros h1 h2 p,\r\nhave q := h1 p,\r\nhave e := h2 q,\r\nexact e,"
     },
     {
       "lean": "example (A B C D E F G H I J K L : Type)\n(f1 : A → B) (f2 : B → E) (f3 : E → D) (f4 : D → A) (f5 : E → F)\n(f6 : F → C) (f7 : B → C) (f8 : F → G) (f9 : G → J) (f10 : I → J)\n(f11 : J → I) (f12 : I → H) (f13 : E → H) (f14 : H → K) (f15 : I → L)\n : A → L :=\n",
@@ -210,7 +210,7 @@
     {
       "lean": "example (P Q R : Prop) : (P → (Q → R)) → ((P → Q) → (P → R)) :=\n",
       "isSolved": true,
-      "editorText": "intros f h p,\r\napply f,\r\nexact p,\r\nexact h p,"
+      "editorText": "intros h1 h2 p,\r\napply h1,\r\nexact p,\r\nexact h2 p,"
     },
     {
       "lean": "lemma imp_trans (P Q R : Prop) : (P → Q) → ((Q → R) → (P → R)) :=\n",
@@ -220,7 +220,7 @@
     {
       "lean": "lemma contrapositive (P Q : Prop) : (P → Q) → (¬ Q → ¬ P) :=\n",
       "isSolved": true,
-      "editorText": "repeat {rw not_iff_imp_false},\r\nintro f,\r\nintro h,\r\nintro p,\r\nhave q := f p,\r\nexact h q,"
+      "editorText": "repeat {rw not_iff_imp_false},\r\nintros h1 h2 p,\r\nhave q := h1 p,\r\nexact h2 q,"
     },
     {
       "lean": "example (A B C D E F G H I J K L : Prop)\n(f1 : A → B) (f2 : B → E) (f3 : E → D) (f4 : D → A) (f5 : E → F)\n(f6 : F → C) (f7 : B → C) (f8 : F → G) (f9 : G → J) (f10 : I → J)\n(f11 : J → I) (f12 : I → H) (f13 : E → H) (f14 : H → K) (f15 : I → L)\n : A → L :=\n",
@@ -240,17 +240,17 @@
     {
       "lean": "lemma and_trans (P Q R : Prop) : P ∧ Q → Q ∧ R → P ∧ R :=\n",
       "isSolved": true,
-      "editorText": "intro f,\r\ncases f with p q,\r\nintro h,\r\ncases h with q' r,\r\nsplit,\r\nexact p,\r\nexact r,"
+      "editorText": "intro h1,\r\ncases h1 with p q,\r\nintro h2,\r\ncases h2 with q' r,\r\nsplit,\r\nexact p,\r\nexact r,"
     },
     {
       "lean": "lemma iff_trans (P Q R : Prop) : (P ↔ Q) → (Q ↔ R) → (P ↔ R) :=\n",
       "isSolved": true,
-      "editorText": "intro f,\r\ncases f with fpq fqp,\r\nintro h,\r\ncases h with hqr hrq,\r\nsplit,\r\nintro p,\r\nhave q := fpq p,\r\nhave r := hqr q,\r\nexact r,\r\nintro r,\r\nhave q := hrq r,\r\nhave p := fqp q,\r\nexact p,"
+      "editorText": "intro h1,\r\ncases h1 with hpq hqp,\r\nintro h2,\r\ncases h2 with hqr hrq,\r\nsplit,\r\nintro p,\r\nhave q := hpq p,\r\nhave r := hqr q,\r\nexact r,\r\nintro r,\r\nhave q := hrq r,\r\nhave p := hqp q,\r\nexact p,"
     },
     {
       "lean": "lemma iff_trans (P Q R : Prop) : (P ↔ Q) → (Q ↔ R) → (P ↔ R) :=\n",
       "isSolved": true,
-      "editorText": "intro f,\r\ncases f with fpq fqp,\r\nintro h,\r\ncases h with hqr hrq,\r\nsplit,\r\nintro p,\r\nhave q := fpq p,\r\nhave r := hqr q,\r\nexact r,\r\nintro r,\r\nhave q := hrq r,\r\nhave p := fqp q,\r\nexact p,"
+      "editorText": "intro h1,\r\ncases h1 with hpq hqp,\r\nintro h2,\r\ncases h2 with hqr hrq,\r\nsplit,\r\nintro p,\r\nhave q := hpq p,\r\nhave r := hqr q,\r\nexact r,\r\nintro r,\r\nhave q := hrq r,\r\nhave p := hqp q,\r\nexact p,"
     },
     {
       "lean": "example (P Q : Prop) : Q → (P ∨ Q) :=\n",
@@ -260,17 +260,17 @@
     {
       "lean": "lemma or_symm (P Q : Prop) : P ∨ Q → Q ∨ P :=\n",
       "isSolved": true,
-      "editorText": "intro f,\r\ncases f with p q,\r\nright,\r\nexact p,\r\nleft,\r\nexact q,"
+      "editorText": "intro h,\r\ncases h with p q,\r\nright,\r\nexact p,\r\nleft,\r\nexact q,"
     },
     {
       "lean": "lemma and_or_distrib_left (P Q R : Prop) : P ∧ (Q ∨ R) ↔ (P ∧ Q) ∨ (P ∧ R) :=\n",
       "isSolved": true,
-      "editorText": "split,\r\nintro f,\r\ncases f with p fqor,\r\ncases fqor with q r,\r\nleft,\r\nsplit,\r\nexact p,\r\nexact q,\r\nright,\r\nsplit,\r\nexact p,\r\nexact r,\r\nintro f,\r\nsplit,\r\ncases f with fpoq fpor,\r\ncases fpoq with p q,\r\nexact p,\r\ncases fpor with p r,\r\nexact p,\r\ncases f with fpoq fpor,\r\ncases fpoq with p q,\r\nleft,\r\nexact q,\r\ncases fpor with p r,\r\nright,\r\nexact r,"
+      "editorText": "split,\r\nintro h,\r\ncases h with p hqor,\r\ncases hqor with q r,\r\nleft,\r\nsplit,\r\nexact p,\r\nexact q,\r\nright,\r\nsplit,\r\nexact p,\r\nexact r,\r\nintro h,\r\nsplit,\r\ncases h with hpoq hpor,\r\ncases hpoq with p q,\r\nexact p,\r\ncases hpor with p r,\r\nexact p,\r\ncases h with hpoq hpor,\r\ncases hpoq with p q,\r\nleft,\r\nexact q,\r\ncases hpor with p r,\r\nright,\r\nexact r,"
     },
     {
       "lean": "lemma contra (P Q : Prop) : (P ∧ ¬ P) → Q :=\n",
       "isSolved": true,
-      "editorText": "intro f,\r\ncases f with p np,\r\nrw not_iff_imp_false at np,\r\nhave fls := np p,\r\nexfalso,\r\nexact fls,"
+      "editorText": "intro h,\r\ncases h with p np,\r\nrw not_iff_imp_false at np,\r\nhave fls := np p,\r\nexfalso,\r\nexact fls,"
     },
     {
       "lean": "lemma contrapositive2 (P Q : Prop) : (¬ Q → ¬ P) → (P → Q) :=\n",
@@ -290,17 +290,17 @@
     {
       "lean": "theorem succ_eq_succ_of_eq {a b : mynat} : a = b → succ(a) = succ(b) :=\n",
       "isSolved": true,
-      "editorText": "intro f,\r\nrw f,\r\nrefl,"
+      "editorText": "intro h,\r\nrw h,\r\nrefl,"
     },
     {
       "lean": "theorem succ_eq_succ_iff (a b : mynat) : succ a = succ b ↔ a = b :=\n",
       "isSolved": true,
-      "editorText": "split,\r\nintro f,\r\nexact succ_inj f,\r\nintro f,\r\nexact succ_eq_succ_of_eq f,"
+      "editorText": "split,\r\nintro h,\r\nexact succ_inj h,\r\nintro h,\r\nexact succ_eq_succ_of_eq h,"
     },
     {
       "lean": "theorem add_right_cancel (a t b : mynat) : a + t = b + t → a = b :=\n",
       "isSolved": true,
-      "editorText": "intro f,\r\ninduction t with t ht,\r\nrepeat {rw add_zero at f},\r\nexact f,\r\nrepeat {rw add_succ at f},\r\nrw ht,\r\nrefl,\r\nexact succ_inj f,"
+      "editorText": "intro h,\r\ninduction t with t ht,\r\nrepeat {rw add_zero at f},\r\nexact h,\r\nrepeat {rw add_succ at f},\r\nrw ht,\r\nrefl,\r\nexact succ_inj h,"
     },
     {
       "lean": "theorem add_left_cancel (t a b : mynat) : t + a = t + b → a = b :=\n",
