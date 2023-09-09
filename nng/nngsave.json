@@ -264,7 +264,8 @@
     },
     {
       "lean": "lemma and_or_distrib_left (P Q R : Prop) : P ∧ (Q ∨ R) ↔ (P ∧ Q) ∨ (P ∧ R) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "split,\r\nintro f,\r\ncases f with p fqor,\r\ncases fqor with q r,\r\nleft,\r\nsplit,\r\nexact p,\r\nexact q,\r\nright,\r\nsplit,\r\nexact p,\r\nexact r,\r\nintro f,\r\nsplit,\r\ncases f with fpoq fpor,\r\ncases fpoq with p q,\r\nexact p,\r\ncases fpor with p r,\r\nexact p,\r\ncases f with fpoq fpor,\r\ncases fpoq with p q,\r\nleft,\r\nexact q,\r\ncases fpor with p r,\r\nright,\r\nexact r,"
     },
     {
       "lean": "lemma contra (P Q : Prop) : (P ∧ ¬ P) → Q :=\n",
