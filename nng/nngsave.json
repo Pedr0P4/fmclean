@@ -279,7 +279,8 @@
     },
     {
       "lean": "theorem succ_inj' {a b : mynat} (hs : succ(a) = succ(b)) :  a = b := \n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "rw succ_inj hs,\r\nrefl,"
     },
     {
       "lean": "theorem succ_succ_inj {a b : mynat} (h : succ(succ(a)) = succ(succ(b))) :  a = b := \n",
