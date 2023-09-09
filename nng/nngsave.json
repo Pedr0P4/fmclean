@@ -250,7 +250,7 @@
     {
       "lean": "lemma iff_trans (P Q R : Prop) : (P ↔ Q) → (Q ↔ R) → (P ↔ R) :=\n",
       "isSolved": true,
-      "editorText": "intros hpiq hqir,\r\nsplit,\r\nintro p,\r\napply hqir.1,\r\napply hpiq.1,\r\nexact p,\r\nintro r,\r\napply hpiq.2,\r\napply hqir.2,\r\nexact r,"
+      "editorText": "intro f,\r\ncases f with fpq fqp,\r\nintro h,\r\ncases h with hqr hrq,\r\nsplit,\r\nintro p,\r\nhave q := fpq p,\r\nhave r := hqr q,\r\nexact r,\r\nintro r,\r\nhave q := hrq r,\r\nhave p := fqp q,\r\nexact p,"
     },
     {
       "lean": "example (P Q : Prop) : Q → (P ∨ Q) :=\n",
@@ -274,7 +274,8 @@
     },
     {
       "lean": "lemma contrapositive2 (P Q : Prop) : (¬ Q → ¬ P) → (P → Q) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "by_cases p : P; by_cases q : Q,\r\nrepeat {cc},"
     },
     {
       "lean": "theorem succ_inj' {a b : mynat} (hs : succ(a) = succ(b)) :  a = b := \n",
