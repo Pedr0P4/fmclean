@@ -384,7 +384,8 @@
     },
     {
       "lean": "theorem le_trans (a b c : mynat) (hab : a ≤ b) (hbc : b ≤ c) : a ≤ c :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "rw le_iff_exists_add at hab,\r\nrw le_iff_exists_add at hbc,\r\ncases hab with c1 h1,\r\ncases hbc with c2 h2,\r\nrw h2,\r\nrw h1,\r\nuse (c1 + c2),\r\nrw add_assoc,\r\nrefl,"
     },
     {
       "lean": "theorem le_antisymm (a b : mynat) (hab : a ≤ b) (hba : b ≤ a) : a = b :=\n",
