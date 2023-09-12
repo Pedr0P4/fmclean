@@ -349,7 +349,8 @@
     },
     {
       "lean": "theorem eq_zero_or_eq_zero_of_mul_eq_zero (a b : mynat) (h : a * b = 0) :\n  a = 0 ∨ b = 0 :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction b with b hb,\r\nrw mul_zero at h,\r\nright,\r\nexact h,\r\nrw mul_succ at h,\r\nleft,\r\napply add_left_eq_zero h,"
     },
     {
       "lean": "theorem mul_eq_zero_iff (a b : mynat): a * b = 0 ↔ a = 0 ∨ b = 0 :=\n",
