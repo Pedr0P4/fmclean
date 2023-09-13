@@ -439,7 +439,8 @@
     },
     {
       "lean": "lemma lt_aux_two (a b : mynat) : succ a ≤ b → a ≤ b ∧ ¬ (b ≤ a) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro h,\r\ncases h with c hc,\r\nsplit,\r\nuse succ c,\r\nrw add_succ,\r\nrw succ_add at hc,\r\nrw hc,\r\nrefl,\r\nintro h,\r\ncases h with c' hc',\r\nrw hc' at hc,\r\nrw succ_eq_add_one at hc,\r\nrw add_assoc at hc,\r\nrw add_comm 1 c at hc,\r\nrw add_assoc at hc,\r\nsymmetry at hc,\r\nhave h1 := eq_zero_of_add_right_eq_self hc,\r\nrw add_one_eq_succ at h1,\r\nrw add_succ at h1,\r\napply succ_ne_zero (c' + c),\r\nexact h1,"
     },
     {
       "lean": "lemma lt_iff_succ_le (a b : mynat) : a < b ↔ succ a ≤ b :=\n",
