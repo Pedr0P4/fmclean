@@ -445,7 +445,7 @@
     {
       "lean": "lemma lt_iff_succ_le (a b : mynat) : a < b ↔ succ a ≤ b :=\n",
       "isSolved": true,
-      "editorText": "split,\r\nintro h,\r\ncases h with h1 h2,\r\napply lt_aux_one,\r\nsplit,\r\nexact h1,\r\nexact h2,\r\nintro h,\r\napply lt_aux_two,\r\nexact h,"
+      "editorText": "split,\r\nintro h,\r\ncases h with hab hnba,\r\napply lt_aux_one,\r\nsplit,\r\nexact hab,\r\nexact hnba,\r\nintro h,\r\napply lt_aux_two,\r\nexact h,"
     }
   ]
 }
