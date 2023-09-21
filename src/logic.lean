@@ -131,13 +131,25 @@ end
 theorem disj_as_negconj :
   P∨Q → ¬(¬P∧¬Q)  :=
 begin
-  
+  intros h nh,
+  cases nh with np nq,
+  cases h with p q,
+  have boom := np p,
+  exact boom,
+  have boom := nq q,
+  exact boom,
 end
 
 theorem conj_as_negdisj :
   P∧Q → ¬(¬P∨¬Q)  :=
 begin
-  sorry,
+  intros h nh,
+  cases h with p q,
+  cases nh with np nq,
+  have boom := np p,
+  exact boom,
+  have boom := nq q,
+  exact boom,
 end
 
 
