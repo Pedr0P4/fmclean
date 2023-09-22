@@ -160,37 +160,106 @@ end
 theorem demorgan_disj :
   ¬(P∨Q) → (¬P ∧ ¬Q)  :=
 begin
-  sorry,
+  intro h,
+  split,
+  intro p,
+  have poq : P ∨ Q,
+  left,
+  exact p,
+  have boom := h poq,
+  exact boom,
+  intro q,
+  have poq : P ∨ Q,
+  right,
+  exact q,
+  have boom := h poq,
+  exact boom,
 end
 
 theorem demorgan_disj_converse :
   (¬P ∧ ¬Q) → ¬(P∨Q)  :=
 begin
-  sorry,
+  intro h,
+  cases h with np nq,
+  intro poq,
+  cases poq with p q,
+  have boom := np p,
+  exact boom,
+  have boom := nq q,
+  exact boom,
 end
 
 theorem demorgan_conj :
   ¬(P∧Q) → (¬Q ∨ ¬P)  :=
 begin
-  sorry,
+  intro h,
+  by_cases p : P,
+  left,
+  intro q,
+  apply h,
+  split,
+  exact p,
+  exact q,
+  right,
+  exact p,
 end
 
 theorem demorgan_conj_converse :
   (¬Q ∨ ¬P) → ¬(P∧Q)  :=
 begin
-  sorry,
+  intros h nh,
+  cases nh with p q,
+  cases h with nq np,
+  have boom := nq q,
+  exact boom,
+  have boom := np p,
+  exact boom,
 end
 
 theorem demorgan_conj_law :
   ¬(P∧Q) ↔ (¬Q ∨ ¬P)  :=
 begin
-  sorry,
+  split,
+  intro h,
+  by_cases p : P,
+  left,
+  intro q,
+  apply h,
+  split,
+  exact p,
+  exact q,
+  right,
+  exact p,
+  intros h nh,
+  cases nh with p q,
+  cases h with nq np,
+  have boom := nq q,
+  exact boom,
+  have boom := np p,
+  exact boom,
 end
 
 theorem demorgan_disj_law :
   ¬(P∨Q) ↔ (¬P ∧ ¬Q)  :=
 begin
-  sorry,
+  split,
+  intro h,
+  split,
+  intro p,
+  apply h,
+  left,
+  exact p,
+  intro q,
+  apply h,
+  right,
+  exact q,
+  intros h nh,
+  cases h with np nq,
+  cases nh with p q,
+  have boom := np p,
+  exact boom,
+  have boom := nq q,
+  exact boom,
 end
 
 ------------------------------------------------
