@@ -257,46 +257,20 @@ theorem demorgan_conj_law :
   ¬(P∧Q) ↔ (¬Q ∨ ¬P)  :=
 begin
   split,
-  intro h,
-  by_cases p : P,
-  left,
-  intro q,
-  apply h,
-  split,
-  exact p,
-  exact q,
-  right,
-  exact p,
-  intros h nh,
-  cases nh with p q,
-  cases h with nq np,
-  have boom := nq q,
-  exact boom,
-  have boom := np p,
-  exact boom,
+  have ht := demorgan_conj P Q,
+  exact ht,
+  have ht := demorgan_conj_converse P Q,
+  exact ht,
 end
 
 theorem demorgan_disj_law :
   ¬(P∨Q) ↔ (¬P ∧ ¬Q)  :=
 begin
   split,
-  intro h,
-  split,
-  intro p,
-  apply h,
-  left,
-  exact p,
-  intro q,
-  apply h,
-  right,
-  exact q,
-  intros h nh,
-  cases h with np nq,
-  cases nh with p q,
-  have boom := np p,
-  exact boom,
-  have boom := nq q,
-  exact boom,
+  have ht := demorgan_disj P Q,
+  exact ht,
+  have ht := demorgan_disj_converse P Q,
+  exact ht,
 end
 
 ------------------------------------------------
