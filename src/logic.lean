@@ -636,6 +636,10 @@ begin
   existsi x,
   left,
   exact h,
+  cases h with x h,
+  existsi x,
+  right,
+  exact h,
 end
 
 theorem forall_conj_as_conj_forall :
